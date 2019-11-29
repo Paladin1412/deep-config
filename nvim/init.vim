@@ -146,9 +146,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'                                                         " linter
 
 " coc 补全框架
-Plug 'Shougo/neco-vim'
-Plug 'neoclide/coc-neco'
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}                " coc 补全框架
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                         " coc 补全框架
 
 " 补全插件
 Plug 'MaskRay/ccls'                                                     " C 系列补全

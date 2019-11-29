@@ -180,6 +180,7 @@ Plug 'liuchengxu/eleline.vim'                                           " status
 Plug 'flazz/vim-colorschemes'                                           " 各种配色方案
 Plug 'bronson/vim-trailing-whitespace'                                  " 高亮尾空白
 Plug 'octol/vim-cpp-enhanced-highlight'                                 " C++ 语法高亮增强
+Plug 'ouzhenkun/vim-tabline'                                            " 显示 tab 信息
 
 " 快速移动
 Plug 'easymotion/vim-easymotion'                                        "

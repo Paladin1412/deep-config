@@ -193,6 +193,7 @@ Plug 'junegunn/vim-easy-align'                                          " TODO: 
 Plug 'liuchengxu/vim-which-key'                                         " 和 spacemacs 类似的
 Plug 'skywind3000/vim-preview'                                          " 预览窗口
 Plug 'skywind3000/asyncrun.vim'                                         " 异步运行
+Plug 'tpope/vim-commentary'                                             " 快速注释
 
 
 " Go 语言插件

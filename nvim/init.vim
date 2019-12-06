@@ -198,8 +198,6 @@ Plug 'tpope/vim-commentary'                                             " 快速
 
 " Go 语言插件
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" LaTex 插件
-Plug 'lervag/vimtex'
 " markdown 插件
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " markdown 预览
 " nginx 插件

@@ -122,15 +122,6 @@ noremap <leader>bt :set buftype=""<cr>
 " ego, peachpuff, leo, kalt, gruvbox, flattown, lettuce
 " getafe
 
-"============================================================================="
-"
-"                            ➢ cc de plugins
-"
-"============================================================================="
-set runtimepath+='/Users/tangmou/.vim/ccdeplugin/mpc/'
-nnoremap <localleader>ss :source /Users/tangmou/.vim/ccdeplugin/mpc/autoload/mpc.vim<cr>
-nnoremap <localleader>st :source %<cr>
-
 
 
 

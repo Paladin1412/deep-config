@@ -78,20 +78,10 @@ let maplocalleader = ","
 
 inoremap <c-u> <esc>viwU
 nnoremap <c-u> viwU
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>    " Edit Vimrc
-nnoremap <leader>sv :source $MYVIMRC<cr>    " Source Vimrc
-nnoremap <leader>T :rightbelow vertical terminal<cr>
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>` viw<esc>a`<esc>bi`<esc>lel
 nnoremap H 0
 nnoremap L $
-nnoremap <localleader>tn :tabnext<cr>
-nnoremap <localleader>tp :tabprev<cr>
-nnoremap <localleader>tf :tabfirst<cr>
-nnoremap <localleader>tl :tablast<cr>
-nnoremap <localleader>cp :MarkdownPreview<cr>
-nnoremap <leader>nh :nohl<cr>
-nnoremap <leader>% :source %<cr>
 " nnoremap <leader>m :marks<cr>
 
 " 如果打开cpp类型的文件，则将,c映射为注释该行
@@ -404,30 +394,26 @@ let g:which_key_map =  {}
 " 比如 `+file`, 就会高亮和显示 `+file` 。默认是 `+prefix`.
 
 " =======================================================
-" 基于已经存在的快捷键映射，直接使用一个字符串说明介绍信息即可
+" 1. 基于已经存在的快捷键映射，直接使用一个字符串说明介绍信息即可
 " =======================================================
 
-let g:which_key_map.f = { 'name' : '+file' }
-
-nnoremap <silent> <leader>fs :update<CR>
-let g:which_key_map.f.s = 'save-file'
-
-nnoremap <silent> <leader>fd :e $MYVIMRC<CR>
-let g:which_key_map.f.d = 'open-vimrc'
-
-" =======================================================
-" 不存在相关的快捷键映射，需要用一个 list：
-" 第一个元素表明执行的操作，第二个是该操作的介绍
-" =======================================================
-
-nnoremap <silent> <leader>oq  :copen<CR>
-nnoremap <silent> <leader>ol  :lopen<CR>
+nnoremap <silent> <leader>oq :copen<CR>
+nnoremap <silent> <leader>ol :lopen<CR>
+nnoremap <silent> <leader>ot :rightbelow vertical terminal<CR>
+nnoremap <silent> <leader>om :MarkdownPreview<CR>
 
 let g:which_key_map.o = {
-      \ 'name' : '+open',
-      \ 'q' : 'open-quickfix'    ,
-      \ 'l' : 'open-locationlist',
-      \ }
+    \ 'name' : '+open',
+    \ 'q' : 'open-quickfix'    ,
+    \ 'l' : 'open-locationlist',
+    \ 't' : 'open-terminal',
+    \ 'm' : 'markdown-preview',
+    \ }
+
+" =======================================================
+" 2. 不存在相关的快捷键映射，需要用一个 list：
+"    第一个元素表明执行的操作，第二个是该操作的介绍
+" =======================================================
 
 let g:which_key_map['b'] = {
     \ 'name' : '+buffer' ,
@@ -443,25 +429,25 @@ let g:which_key_map['b'] = {
     \ }
 
 let g:which_key_map['w'] = {
-      \ 'name' : '+windows' ,
-      \ 'w' : ['<C-W>w'     , 'other-window']          ,
-      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
-      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
-      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
-      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-      \ 'h' : ['<C-W>h'     , 'window-left']           ,
-      \ 'j' : ['<C-W>j'     , 'window-below']          ,
-      \ 'l' : ['<C-W>l'     , 'window-right']          ,
-      \ 'k' : ['<C-W>k'     , 'window-up']             ,
-      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-      \ 'J' : ['resize +5'  , 'expand-window-below']   ,
-      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-      \ 'K' : ['resize -5'  , 'expand-window-up']      ,
-      \ '=' : ['<C-W>='     , 'balance-window']        ,
-      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
-      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
-      \ '?' : ['Windows'    , 'fzf-window']            ,
-      \ }
+    \ 'name' : '+windows' ,
+    \ 'w' : ['<C-W>w'     , 'other-window']          ,
+    \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+    \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+    \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+    \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+    \ 'h' : ['<C-W>h'     , 'window-left']           ,
+    \ 'j' : ['<C-W>j'     , 'window-below']          ,
+    \ 'l' : ['<C-W>l'     , 'window-right']          ,
+    \ 'k' : ['<C-W>k'     , 'window-up']             ,
+    \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+    \ 'J' : ['resize +5'  , 'expand-window-below']   ,
+    \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+    \ 'K' : ['resize -5'  , 'expand-window-up']      ,
+    \ '=' : ['<C-W>='     , 'balance-window']        ,
+    \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+    \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
+    \ '?' : ['Windows'    , 'fzf-window']            ,
+    \ }
 
 let g:which_key_map['l'] = {
     \ 'name' : '+lsp'                                            ,
@@ -477,6 +463,54 @@ let g:which_key_map['l'] = {
         \ 't' : ['LanguageClient#textDocument_typeDefinition()' , 'type-definition']  ,
         \ 'i' : ['LanguageClient#textDocument_implementation()'  , 'implementation']  ,
         \ },
+    \ }
+
+
+let g:which_key_map['f'] = {
+    \ 'name' : '+LeaderF',
+    \ 'f': 'file',
+    \ 'b': 'buffers',
+    \ 'm': 'mru',
+    \ 't': 'buftag',
+    \ 'l': 'line',
+    \ }
+
+
+nnoremap <leader>ne :vsplit $MYVIMRC<CR>
+nnoremap <leader>ns :source $MYVIMRC<CR>
+let g:which_key_map['n'] = {
+    \ 'name'  : '+neovim'   ,
+    \ 'e'  : 'edit'         ,
+    \ 's'  : 'source'       ,
+    \ }
+
+
+nnoremap <leader>tn :tabnext<CR>
+nnoremap <leader>tp :tabprev<CR>
+nnoremap <leader>tf :tabfirst<CR>
+nnoremap <leader>tl :tablast<CR>
+
+let g:which_key_map['t'] = {
+    \ 'name' : '+tab'       ,
+    \ 'f'  : 'first tab'    ,
+    \ 'l'  : 'last tab'     ,
+    \ 'n'  : 'next tab'     ,
+    \ 'p'  : 'prev tab'     ,
+    \ }
+
+
+nnoremap <silent> <leader>gdv :Gvdiffsplit<CR>
+let g:which_key_map['g'] = {
+    \ 'name' : '+git',
+    \ 'd'  : {
+        \ 'name'  : '+diff'   ,
+        \ '|'  : 'vsplit'     ,
+        \ },
+    \ }
+
+
+let g:which_key_map['c'] = {
+    \ 'name' : 'coc',
     \ }
 
 call which_key#register('<Space>', "g:which_key_map")

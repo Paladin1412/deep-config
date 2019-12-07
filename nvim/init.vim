@@ -399,6 +399,9 @@ let g:which_key_map['o'] = {
 " 2. 不存在相关的快捷键映射，需要用一个 list：
 "    第一个元素表明执行的操作，第二个是该操作的介绍
 " =======================================================
+" NOTE: <leader>b 似乎被映射到了 LeaderBuffer 上了
+unmap <leader>b
+
 let g:which_key_map['b'] = {
     \ 'name' : '+buffer' ,
     \ '1' : ['b1'        , 'buffer 1']        ,

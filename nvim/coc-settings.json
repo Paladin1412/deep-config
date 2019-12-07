@@ -17,7 +17,7 @@
 
         "lua": {
             "command": "java",
-            "args": ["-cp", "/Users/tangmou/ilinux/install/EmmyLua-LanguageServer/EmmyLua-LS/build/libs/EmmyLua-LS-all.jar", "com.tang.vscode.MainKt"],
+            "args": ["-cp", "/Users/chenjianyong/Desktop/ilinux/install/EmmyLua-LanguageServer/EmmyLua-LS/build/libs/EmmyLua-LS-all.jar", "com.tang.vscode.MainKt"],
             "filetypes": ["lua"],
             "rootPatterns": [".git/"]
         }

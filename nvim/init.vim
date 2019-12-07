@@ -75,14 +75,6 @@ nnoremap <c-u> viwU
 "nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 "nnoremap <leader>` viw<esc>a`<esc>bi`<esc>lel
 
-
-
-" 如果打开cpp类型的文件，则将,c映射为注释该行
-augroup fastComment
-    autocmd!
-    autocmd Filetype cpp nnoremap <buffer> <localleader>c I//<esc>j
-augroup END
-
 " 重新打开文件时，回到上一次退出的位置
 augroup backtolastpos
     autocmd!
@@ -92,9 +84,6 @@ augroup backtolastpos
                 \ endif
 augroup END
 
-
-" 学习 vimscript 时需要使用
-" noremap <leader>bt :set buftype=""<cr>
 
 
 "============================================================================="
@@ -410,7 +399,6 @@ let g:which_key_map['o'] = {
 " 2. 不存在相关的快捷键映射，需要用一个 list：
 "    第一个元素表明执行的操作，第二个是该操作的介绍
 " =======================================================
-
 let g:which_key_map['b'] = {
     \ 'name' : '+buffer' ,
     \ '1' : ['b1'        , 'buffer 1']        ,
@@ -544,7 +532,7 @@ nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>
 nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>
 
 let g:which_key_map['c'] = {
-    \ 'name' : '+coc'            ,
+    \ 'name' : '+coc'           ,
     \ 'K'  : 'document'         ,
     \ 'n'  : 'action next item' ,
     \ 'p'  : 'action prev item' ,

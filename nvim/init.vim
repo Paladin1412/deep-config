@@ -195,6 +195,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " markdo
 Plug 'spacewander/openresty-vim'
 Plug 'chr4/nginx.vim'
 
+" 新插件试用
+Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
 
 

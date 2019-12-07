@@ -5,66 +5,60 @@
 "============================================================================="
 
 
-"" use vim mode instead of pure Vi, it must be the first instruction
-set nocompatible
+set nocompatible                        " use vim mode instead of pure Vi, must be the first instruction
 
-" set how many lines of history VIM has to remember
-set history=100
-
-" set 7 lines to the cursor - when moving vertically using j/k
-set so=7
-
-" set to auto read when a file is changed from the outside
-set autoread
+set history=100                         " lines of history VIM has to remember
+set so=7                                " set 7 lines to the cursor - when moving vertically using j/k
+set autoread                            " auto read when a file is changed from the outside
 
 
 " display settings
-set nu                                                                  " show line number
-set relativenumber                                                      " relative line number
-set encoding=utf-8                                                      " encoding used for display file
+set nu                                   " show line number
+set relativenumber                       " relative line number
+set encoding=utf-8                       " encoding used for display file
 set guifont=Fira\ Code:h12
-set ruler                                                               " show the cursor position all the time
-set showmatch                                                           " highlight matching braces
-" set showmode                                                          " show insert/replace/visual mode
+set ruler                                " show the cursor position all the time
+set showmatch                            " highlight matching braces
+" set showmode                           " show insert/replace/visual mode
 set foldmethod=indent
 
 " window settings
-set splitright                                                          " show at right when spliting
+set splitright                           " show at right when spliting
 
 " write settings
-set confirm                                                             " confirm :q in case of unsaved changes
-set nobackup                                                            " do not keep the backup~ file
+set confirm                              " confirm :q in case of unsaved changes
+set nobackup                             " do not keep the backup~ file
 
 " edit settings
-set backspace=indent,eol,start                                          " backspacing over everything in the insert mode
-set expandtab                                                           " fill tabs with spaces
-set nojoinspaces                                                        " no extra space after '.' when join lines
-set shiftwidth=4                                                        " set indentation depth to 8 columns
-set softtabstop=4                                                       " backspacing over spaces like over tabs
-set tabstop=4                                                           " set tabulator length to 8 columns
+set backspace=indent,eol,start           " backspacing over everything in the insert mode
+set expandtab                            " fill tabs with spaces
+set nojoinspaces                         " no extra space after '.' when join lines
+set shiftwidth=4                         " set indentation depth to 8 columns
+set softtabstop=4                        " backspacing over spaces like over tabs
+set tabstop=4                            " set tabulator length to 8 columns
 " set wrap
-" set textwidth=80                                                      " wrap lines automatically at 80th column
+" set textwidth=80                       " wrap lines automatically at 80th column
 
 " search settings
-set hlsearch                                                            " highlight search results
-set ignorecase                                                          " do case insensitive search...
-set incsearch                                                           " do incremental search
-set smartcase                                                           " ...unless capital lettters are used
+set hlsearch                             " highlight search results
+set ignorecase                           " do case insensitive search...
+set incsearch                            " do incremental search
+set smartcase                            " ...unless capital lettters are used
 
 " for lightline has shown mode
 set noshowmode
 
 " file type specific settings
-filetype on                                                             " enable file type detection
-filetype plugin on                                                      " load the plugin for specific file types
-filetype indent on                                                      " automatically indent code
+filetype on                              " enable file type detection
+filetype plugin on                       " load the plugin for specific file types
+filetype indent on                       " automatically indent code
 
 " syntax highlighting
 set background=dark
-colorscheme gruvbox                                                     " colorscheme
-syntax enable                                                           " enable syntax highlighting
+colorscheme gruvbox                      " colorscheme
+syntax enable                            " enable syntax highlighting
 
-set updatetime=100                                                      " update frequency
+set updatetime=100                       " update frequency
 
 
 "============================================================================="
@@ -402,7 +396,7 @@ nnoremap <silent> <leader>ol :lopen<CR>
 nnoremap <silent> <leader>ot :rightbelow vertical terminal<CR>
 nnoremap <silent> <leader>om :MarkdownPreview<CR>
 
-let g:which_key_map.o = {
+let g:which_key_map['o'] = {
     \ 'name' : '+open',
     \ 'q' : 'open-quickfix'    ,
     \ 'l' : 'open-locationlist',
@@ -467,12 +461,12 @@ let g:which_key_map['l'] = {
 
 
 let g:which_key_map['f'] = {
-    \ 'name' : '+LeaderF',
-    \ 'f': 'file',
-    \ 'b': 'buffers',
-    \ 'm': 'mru',
-    \ 't': 'buftag',
-    \ 'l': 'line',
+    \ 'name' : '+LeaderF'   ,
+    \ 'f': 'file'           ,
+    \ 'b': 'buffers'        ,
+    \ 'm': 'mru'            ,
+    \ 't': 'buftag'         ,
+    \ 'l': 'line'           ,
     \ }
 
 

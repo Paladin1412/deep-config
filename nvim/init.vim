@@ -70,6 +70,12 @@ set updatetime=100                       " update frequency
 let mapleader = "\<Space>"
 let maplocalleader = ","
 
+inoremap <c-u> <esc>viwU
+nnoremap <c-u> viwU
+"nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+"nnoremap <leader>` viw<esc>a`<esc>bi`<esc>lel
+
+
 
 " 如果打开cpp类型的文件，则将,c映射为注释该行
 augroup fastComment
@@ -498,8 +504,7 @@ let g:which_key_map['g'] = {
     \ }
 
 
-
-" Use `[g` and `]g` to navigate diagnostics
+" to navigate diagnostics
 nnoremap <silent> <leader>cep <Plug>(coc-diagnostic-prev)
 nnoremap <silent> <leader>cen <Plug>(coc-diagnostic-next)
 " Remap keys for gotos
@@ -566,11 +571,6 @@ let g:which_key_map['c'] = {
         \ },
     \ }
 
-
-inoremap <c-u> <esc>viwU
-nnoremap <c-u> viwU
-"nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-"nnoremap <leader>` viw<esc>a`<esc>bi`<esc>lel
 
 
 call which_key#register('<Space>', "g:which_key_map")

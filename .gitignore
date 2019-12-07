@@ -1,3 +1,7 @@
 nvim/colors/
 nvim/autoload/
 coc/
+configstore/
+neofetch/
+yarn/
+htop/

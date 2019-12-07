@@ -70,13 +70,6 @@ set updatetime=100                       " update frequency
 let mapleader = "\<Space>"
 let maplocalleader = ","
 
-inoremap <c-u> <esc>viwU
-nnoremap <c-u> viwU
-nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-nnoremap <leader>` viw<esc>a`<esc>bi`<esc>lel
-nnoremap H 0
-nnoremap L $
-" nnoremap <leader>m :marks<cr>
 
 " 如果打开cpp类型的文件，则将,c映射为注释该行
 augroup fastComment
@@ -95,7 +88,7 @@ augroup END
 
 
 " 学习 vimscript 时需要使用
-noremap <leader>bt :set buftype=""<cr>
+" noremap <leader>bt :set buftype=""<cr>
 
 
 "============================================================================="
@@ -393,8 +386,9 @@ let g:which_key_map =  {}
 
 nnoremap <silent> <leader>oq :copen<CR>
 nnoremap <silent> <leader>ol :lopen<CR>
-nnoremap <silent> <leader>ot :rightbelow vertical terminal<CR>
+nnoremap <silent> <leader>ov :Vista coc<CR>
 nnoremap <silent> <leader>om :MarkdownPreview<CR>
+nnoremap <silent> <leader>ot :rightbelow vertical terminal<CR>
 
 let g:which_key_map['o'] = {
     \ 'name' : '+open',
@@ -402,6 +396,7 @@ let g:which_key_map['o'] = {
     \ 'l' : 'open-locationlist',
     \ 't' : 'open-terminal',
     \ 'm' : 'markdown-preview',
+    \ 'v' : 'vista-window'
     \ }
 
 " =======================================================
@@ -503,9 +498,80 @@ let g:which_key_map['g'] = {
     \ }
 
 
+
+" Use `[g` and `]g` to navigate diagnostics
+nnoremap <silent> <leader>cep <Plug>(coc-diagnostic-prev)
+nnoremap <silent> <leader>cen <Plug>(coc-diagnostic-next)
+" Remap keys for gotos
+nnoremap <silent> <leader>cgd <Plug>(coc-definition)
+nnoremap <silent> <leader>cgy <Plug>(coc-type-definition)
+nnoremap <silent> <leader>cgi <Plug>(coc-implementation)
+nnoremap <silent> <leader>cgr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> <leader>cK :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <leader>cla  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <leader>cle  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <leader>clc  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <leader>clo  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <leader>cls  :<C-u>CocList -I symbols<cr>
+" Resume latest coc list
+nnoremap <silent> <leader>clp  :<C-u>CocListResume<CR>
+
+" Do default action for next item.
+nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>
+
 let g:which_key_map['c'] = {
-    \ 'name' : 'coc',
+    \ 'name' : '+coc'            ,
+    \ 'K'  : 'document'         ,
+    \ 'n'  : 'action next item' ,
+    \ 'p'  : 'action prev item' ,
+    \ 'e'  : {
+        \ 'name'  : '+error'        ,
+        \ 'c'  : 'current-error'    ,
+        \ 'n'  : 'next-error'       ,
+        \ 'p'  : 'prev error'       ,
+        \ },
+    \ 'g'  : {
+        \ 'name' : '+goto'          ,
+        \ 'd'  : 'definition'       ,
+        \ 'y'  : 'type-definition'  ,
+        \ 'i'  : 'implementation'   ,
+        \ 'r'  : 'reference'        ,
+        \ },
+    \ 'l'  : {
+        \ 'name'  : '+coclist'      ,
+        \ 'a'  : 'diagnostics'      ,
+        \ 'e'  : 'extensions'       ,
+        \ 'c'  : 'commands'         ,
+        \ 'o'  : 'outline'          ,
+        \ 's'  : 'symbols'          ,
+        \ 'p'  : 'resume-last-list' ,
+        \ },
     \ }
+
+
+inoremap <c-u> <esc>viwU
+nnoremap <c-u> viwU
+"nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+"nnoremap <leader>` viw<esc>a`<esc>bi`<esc>lel
+
 
 call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
@@ -694,20 +760,6 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" 错误处理
-" 显示当前位置上的错误
-nnoremap <Leader>e <Plug>(coc-diagnostic-info)
-" 跳转到下一个错误处
-nnoremap <Leader>en <Plug>(coc-diagnostic-next)
-nnoremap <Leader>ep <Plug>(coc-diagnostic-prev)
-" 跳转到声明位置
-nnoremap <Leader>d <Plug>(coc-declaration)
-" 跳转到定义位置
-nnoremap <Leader>D <Plug>(coc-definition)
-" 跳转到类型定义处
-nnoremap <Leader>td <Plug>(coc-type-definition)
-nnoremap <Leader>r <Plug>(coc-references)
-
 
 
 
@@ -748,10 +800,6 @@ set statusline+=%{NearestMethodOrFunction()}
 " If you want to show the nearest function in your statusline automatically,
 " you can add the following line to your vimrc
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-
-" 快捷键
-nnoremap <leader>v :Vista coc<cr>
-nnoremap <leader>V :Vista!!<cr>
 
 
 

@@ -70,10 +70,6 @@ set updatetime=100                       " update frequency
 let mapleader = "\<Space>"
 let maplocalleader = ","
 
-inoremap <c-u> <esc>viwU
-nnoremap <c-u> viwU
-"nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-"nnoremap <leader>` viw<esc>a`<esc>bi`<esc>lel
 
 " 重新打开文件时，回到上一次退出的位置
 augroup backtolastpos
@@ -185,8 +181,8 @@ call plug#end()
 "
 "============================================================================="
 
-highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
-highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
+"highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
+"highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 
 
 
@@ -485,7 +481,8 @@ let g:which_key_map['t'] = {
 
 nnoremap <silent> <leader>gdv :Gvdiffsplit<CR>
 let g:which_key_map['g'] = {
-    \ 'name' : '+git',
+    \ 'name' : '+git'   ,
+    \ 'b'  : 'blame'    ,
     \ 'd'  : {
         \ 'name'  : '+diff'   ,
         \ '|'  : 'vsplit'     ,
@@ -560,6 +557,19 @@ let g:which_key_map['c'] = {
         \ },
     \ }
 
+
+inoremap <c-u> <esc>viwU
+nnoremap <c-u> viwU
+nnoremap <leader>d" viw<esc>a"<esc>bi"<esc>lel
+nnoremap <leader>d' viw<esc>a'<esc>bi'<esc>lel
+nnoremap <leader>d` viw<esc>a`<esc>bi`<esc>lel
+
+let g:which_key_map['d'] = {
+    \ 'name'  : '+wrap'         ,
+    \ "'"  : 'quotes'           ,
+    \ '"'  : 'double quotes'    ,
+    \ '`'  : 'back quote'       ,
+    \ }
 
 
 call which_key#register('<Space>', "g:which_key_map")

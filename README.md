@@ -226,3 +226,11 @@ diff 的升级版，带高亮，而且可以配合 git 一起用。
 ```sh
 % brew install shellcheck
 ```
+
+* [mycli](https://www.mycli.net/)
+
+比原生的 mysql 工具更好用，带高亮和补全，完美。
+
+```sh
+% brew install mycli
+```

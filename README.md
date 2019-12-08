@@ -1,12 +1,8 @@
 # INTRODUCTION
 
-最近换了电脑，又得重新配置一遍，照着旧电脑的配置找那些软件真的是很烦，而且很多好
-用的命令行工具我可能直接就给忘了，后面要用的时候又想不起来。而且其实换过几次电脑
-之后发现大部分配置都是相同的，而把时间花在重复的事情上是没有意义的，所以打算把一
-般配置和安装方法都记录下来，最好是能够写个脚本一键安装，以后再换设备就从这儿同步。
+最近换了电脑，又得重新配置一遍，照着旧电脑的配置找那些软件真的是很烦，而且很多好用的命令行工具我可能直接就给忘了，后面要用的时候又想不起来。而且其实换过几次电脑之后发现大部分配置都是相同的，而把时间花在重复的事情上是没有意义的，所以打算把一般配置和安装方法都记录下来，最好是能够写个脚本一键安装，以后再换设备就从这儿同步。
 
-其实网上已经有很多类似的 awesome 系列了，但是总是感觉不太称手，要么太多我用不上，
-要么太少(一般不会)我觉得不够，所以就重复造轮子了
+其实网上已经有很多类似的 awesome 系列了，但是总是感觉不太称手，要么太多我用不上，要么太少(一般不会)我觉得不够，所以就重复造轮子了。
 
 ## cli-APP
 
@@ -61,7 +57,7 @@ macOS 现在默认是使用 zsh，但是它自带的 zsh 有点老了，换 brew
 给敲出来的命令加上高亮，也是舒服。
 
 ```sh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+% git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 * [zsh-autosuggesstions](https://github.com/zsh-users/zsh-autosuggestions)
@@ -161,8 +157,7 @@ find 的替代品。
 
 * [jq](https://stedolan.github.io/jq/)
 
-命令行 json 处理器。看着几十 k 甚至更大的 json 文件却都挤在一行而气得不行的时候我
-就会 jq 一下。
+命令行 json 处理器。看着几十 k 甚至更大的 json 文件却都挤在一行而气得不行的时候我就会 jq 一下。
 
 ```sh
 % brew install jq
@@ -170,8 +165,7 @@ find 的替代品。
 
 * [httpie](https://httpie.org/)
 
-带高亮的 curl，更舒服，但是一个弊端是和 curl 并不是完全兼容的(参数、选项)，所以还
-得记两套。
+带高亮的 curl，更舒服，但是一个弊端是和 curl 并不是完全兼容的(参数、选项)，所以还得记两套。
 
 ```sh
 % brew intall httpie
@@ -195,8 +189,7 @@ find 的替代品。
 
 * [cloc](https://github.com/AlDanial/cloc)
 
-统计一下项目里头用了哪些语言，文件有多少，有效代码有多少，注释有多少，空行有多少，
-好在读源码之前有个心理准备。
+统计一下项目里头用了哪些语言，文件有多少，有效代码有多少，注释有多少，空行有多少，好在读源码之前有个心理准备。
 
 ```sh
 % brew install cloc
@@ -204,8 +197,7 @@ find 的替代品。
 
 * [tldr](https://github.com/tldr-pages/tldr)
 
-简化的、社区驱动的 man-page。下载了一个`.xz`的文件，不知道是该用`-j`还是`-z`还是，
-man 一下发现 doc 老长，找半天找不到？
+简化的、社区驱动的 man-page。下载了一个`tar.xz`的文件，不知道是该用`-j`还是`-z`还是，man 一下发现 doc 老长，找半天找不到？
 
 ```sh
 % brew install tldr
@@ -258,7 +250,6 @@ diff 的升级版，带高亮，而且可以配合 git 一起用。
 ```sh
 % brew install multitail
 ```
-
 
 ## References
 

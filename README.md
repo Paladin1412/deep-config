@@ -218,3 +218,11 @@ diff 的升级版，带高亮，而且可以配合 git 一起用。
 ```sh
 % brew install ncdu
 ```
+
+* [shellcheck](https://github.com/koalaman/shellcheck)
+
+用于 shell 脚本的静态检查工具，写 shell 总算可能轻松一点了。
+
+```sh
+% brew install shellcheck
+```

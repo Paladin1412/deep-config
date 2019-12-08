@@ -169,6 +169,14 @@ Fira Code 字体，这里不用其他地方也得用。
 % brew intall httpie
 ```
 
+* [htop](https://hisham.hm/htop/)
+
+更好用的 top，而且带有高亮；类似的还有一个[glances](https://nicolargo.github.io/glances/)，但是感觉比 htop 慢挺多的。
+
+```sh
+% brew install htop glances
+```
+
 * [hexyl](https://github.com/sharkdp/hexyl)
 
 带高亮的命令行十六进制查看器，不得不说带高亮真的是看着就舒服。

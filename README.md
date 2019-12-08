@@ -127,6 +127,14 @@ Fira Code 字体，这里不用其他地方也得用。
 % $(brew --prefix)/opt/fzf/install
 ```
 
+* [fd](https://github.com/sharkdp/fd)
+
+find 的替代品。
+
+```sh
+% brew install fd
+```
+
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 比 grep 好用太多，但是和 fzf 一样可能让你在面试时被问 grep 时哑口无言。

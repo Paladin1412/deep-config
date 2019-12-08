@@ -242,3 +242,8 @@ diff 的升级版，带高亮，而且可以配合 git 一起用。
 ```sh
 % brew install multitail
 ```
+
+
+## References
+
+[有哪些命令行的软件堪称神器](https://www.zhihu.com/question/59227720)

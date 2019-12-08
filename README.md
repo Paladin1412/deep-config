@@ -234,3 +234,11 @@ diff 的升级版，带高亮，而且可以配合 git 一起用。
 ```sh
 % brew install mycli
 ```
+
+* [multitail](https://www.vanheusden.com/multitail/)
+
+监控多个文件，tail 的升级版。省去了开多个 pane/tab 再使用 tail 的繁琐，而且有许多其它好用的功能。
+
+```sh
+% brew install multitail
+```

@@ -205,7 +205,7 @@ find 的替代品。
 
 * [icdiff](https://github.com/jeffkaufman/icdiff)
 
-diff 的升级版，带高亮，而且可以配合 git 一起用。
+ 分屏 diff，可以看做 diff 的升级版，带高亮，而且可以配合 git 一起用。
 
 ```sh
 % brew install icdiff

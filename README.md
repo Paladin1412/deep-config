@@ -227,6 +227,14 @@ diff 的升级版，带高亮，而且可以配合 git 一起用。
 % brew install ncdu
 ```
 
+* [pydf](https://pypi.org/project/pydf/)
+
+不知道该不该安装 pydf，感觉和 ncdu 的功能重叠了。
+
+```sh
+% pip3 install pydf --user
+```
+
 * [shellcheck](https://github.com/koalaman/shellcheck)
 
 用于 shell 脚本的静态检查工具，写 shell 总算可能轻松一点了。

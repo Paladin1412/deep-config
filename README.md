@@ -287,6 +287,40 @@ http 抓包工具。
 % brew cask install charles
 ```
 
+#### JetBrains 开发工具系列
+
+首先安装[jetbrains toolbox](https://www.jetbrains.com/toolbox-app/)
+
+```sh
+% brew cask install jetbrains-toolbox
+```
+
+然后使用 toolbox 来安装 Clion/GoLand 等开发工具，然后最重要的就是插件了：
+
+* [IdeaVim](https://github.com/JetBrains/ideavim)
+
+vim 模拟器。
+
+* [Key Promoter X](https://plugins.jetbrains.com/plugin/9792-key-promoter-x/)
+
+教你学习快捷键的插件。
+
+* [Atom Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons/)
+
+各种各样的图标。
+
+* [Nyan Progress Bar](https://plugins.jetbrains.com/plugin/8575-nyan-progress-bar/)
+
+挺漂亮的进度条。
+
+* [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
+
+🌈括号，必备。
+
+* [Spacegrey Theme](https://plugins.jetbrains.com/plugin/12122-spacegray-theme/) 和 [Gruvbox Theme](https://plugins.jetbrains.com/plugin/12310-gruvbox-theme/)
+
+必备的两个配色。
+
 ### 效率工具
 
 * [Alfred](https://www.alfredapp.com/)

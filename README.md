@@ -413,6 +413,32 @@ brew cask install pdf-expert
 % brew cask install iina
 ```
 
+#### Chrome 插件
+
+* [One Tab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall?hl=en)
+
+记住打开的 tab。
+
+* [Bookmark Sidebar](https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh?hl=en)
+
+侧边栏书签。
+
+* [Infinity New Tab](https://chrome.google.com/webstore/detail/infinity-new-tab-producti/dbfmnekepjoapopniengjbcpnbljalfg?hl=en)
+
+漂亮的主页，而且可以添加主页书签。
+
+* [LastPass](https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd)
+
+密码管理工具。
+
+* [Wikiwand](https://chrome.google.com/webstore/detail/wikiwand-wikipedia-modern/emffkefkbkpkgpdeeooapgaicgmcbolj)
+
+现代化的 Wikipedia。
+
+* [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)
+
+vim 模拟器。
+
 ## References
 
 [有哪些命令行的软件堪称神器](https://www.zhihu.com/question/59227720)

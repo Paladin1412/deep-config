@@ -251,6 +251,130 @@ diff 的升级版，带高亮，而且可以配合 git 一起用。
 % brew install multitail
 ```
 
+## gui-APP
+
+### 开发工具
+
+* [iTerm2](https://iterm2.com/)
+
+替代 macOS 原生的 terminal，自带 tmux 的加持，开新 panel 方便的多了。
+
+```sh
+% brew cask install iterm2
+```
+
+* [fork](https://git-fork.com/)
+
+git gui 工具，虽然可能比较小众，但是挺好用的。
+
+```sh
+% brew cask install fork
+```
+
+* [Dash](https://kapeli.com/dash)
+
+API 文档查询工具，配合 Alfred 感觉很 OK。
+
+```sh
+% brew cask install dash
+```
+
+* [charles](https://www.charlesproxy.com/)
+
+http 抓包工具。
+
+```sh
+% brew cask install charles
+```
+
+### 效率工具
+
+* [Alfred](https://www.alfredapp.com/)
+
+macOS 上超好用的效率工具。可通过热键，关键字，文本扩展等功能提高效率。搜索 mac 和网络，并通过自定义操作来控制 mac 来提高生产力。
+
+```sh
+% brew cask install alfred
+```
+
+* [Contexts](https://contexts.co/)
+
+```sh
+% brew cask install contexts
+```
+
+窗口切换工具。
+
+* [Go2Shell](https://zipzapmac.com/Go2Shell)
+
+从 Finder 直接到终端。
+
+```sh
+% brew cask install go2shell
+```
+
+* [CheatSheet](https://cheatsheet-mac.en.softonic.com/mac)
+
+快捷键查询工具。
+
+```sh
+% brew cask install cheatsheet
+```
+
+* [Microsoft To Do](https://todo.microsoft.com/)
+
+微软家的 todo 工具。
+
+* [OminiGraffle](https://www.omnigroup.com/omnigraffle/)
+
+mac 上超好用的画图工具。
+
+```sh
+brew cask install omnigraffle
+```
+
+* [CleanMyMac X](https://cleanmymac.macpaw.com/)
+
+mac 上的清理工具。
+
+```sh
+% brew cask install cleanmymac
+```
+
+* [Spectacle](https://www.spectacleapp.com/)
+
+轻松移动和调整窗口大小。
+
+```sh
+brew cask install spectacle
+```
+
+* [PDF Expert](https://pdfexpert.com/)
+
+mac 上最好的 PDF 阅读工具。
+
+```sh
+brew cask install pdf-expert
+```
+
+* [Macs Fan Control](https://www.crystalidea.com/macs-fan-control)
+
+手动调节 mac 的风扇，感觉很有必要。
+
+```sh
+% brew cask install macs-fan-control
+```
+
+### 娱乐工具
+
+* [IINA](https://iina.io/)
+
+应该是 macOS 上最好看的音乐播放器了，除了好看，功能也是很完善的。
+
+```sh
+% brew cask install iina
+```
+
 ## References
 
 [有哪些命令行的软件堪称神器](https://www.zhihu.com/question/59227720)

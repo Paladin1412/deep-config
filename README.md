@@ -321,6 +321,10 @@ vim 模拟器。
 
 必备的两个配色。
 
+* [Material Theme UI](https://plugins.jetbrains.com/plugin/8006-material-theme-ui/)
+
+好看的 UI。
+
 ### 效率工具
 
 * [Alfred](https://www.alfredapp.com/)

@@ -120,7 +120,7 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                       " 文件
 Plug 'liuchengxu/vim-clap'                                              " 弹窗搜索各种
 
 "  文件树
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }               " 文件树
 Plug 'kristijanhusak/defx-icons'                                        " 文件图标
 Plug 'kristijanhusak/defx-git'                                          " 文件中 git 状态
 
@@ -164,7 +164,7 @@ Plug 'spacewander/openresty-vim'
 Plug 'chr4/nginx.vim'
 
 " 新插件试用
-Plug 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'                                    " 这是啥插件来着？
 
 call plug#end()
 
@@ -453,6 +453,9 @@ let g:which_key_map['f'] = {
     \ 'm': 'mru'            ,
     \ 't': 'buftag'         ,
     \ 'l': 'line'           ,
+    \ 's': 'self'           ,
+    \ 'r': 'rg'             ,
+    \ 'c': 'colorscheme'    ,
     \ }
 
 
@@ -480,6 +483,7 @@ let g:which_key_map['t'] = {
 
 
 nnoremap <silent> <leader>gdv :Gvdiffsplit<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
 let g:which_key_map['g'] = {
     \ 'name' : '+git'   ,
     \ 'b'  : 'blame'    ,
@@ -623,6 +627,9 @@ noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+noremap <leader>fs :<C-U><C-R>=printf("Leaderf self %s", "")<CR><CR>
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf rg %s", "")<CR><CR>
+noremap <leader>fc :<C-U><C-R>=printf("Leaderf colorscheme %s", "")<CR><CR>
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
@@ -887,17 +894,17 @@ let g:vista#renderer#enable_icon = 1
 "\   "variable": "\uf71b",
 "\  }
 
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
+" function! NearestMethodOrFunction() abort
+"   return get(b:, 'vista_nearest_method_or_function', '')
+" endfunction
 
-set statusline+=%{NearestMethodOrFunction()}
+" set statusline+=%{NearestMethodOrFunction()}
 
 " By default vista.vim never run if you don't call it explicitly.
 "
 " If you want to show the nearest function in your statusline automatically,
 " you can add the following line to your vimrc
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 
 

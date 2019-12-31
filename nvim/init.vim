@@ -159,9 +159,11 @@ Plug 'tpope/vim-commentary'                                             " 快速
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " markdown 插件
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " markdown 预览
-" nginx 插件
+
+" 语法高亮插件
 Plug 'spacewander/openresty-vim'
 Plug 'chr4/nginx.vim'
+Plug 'solarnz/thrift.vim'
 
 " 新插件试用
 Plug 'editorconfig/editorconfig-vim'                                    " 这是啥插件来着？

@@ -9,7 +9,7 @@
 	df = icdiff
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	last = "log -1"
-    undro = "reset HEAD@{1}"
+    undo = "reset HEAD@{1}"
 
 [tig]
 	tab-size = 4

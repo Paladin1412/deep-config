@@ -1,5 +1,93 @@
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #
+#				                Speedup ZSH                                  +
+#
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+# kolo cloud awesomepanda zhann edvardm
+
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#
+#				                Speedup ZSH                                  +
+#
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+HISTSIZE=1000
+SAVEHIST=1000
+
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#
+#				                Env                                          +
+#
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#
+#				                Alias                                        +
+#
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
+alias vim=nvim
+alias vi="vim --noplugin"
+alias today="date '+%Y-%m-%d'"
+alias rm=trash
+alias git=/usr/local/bin/git
+alias dev="ssh chenjianyong@10.227.6.247"
+alias devi18n="ssh chenjianyong@10.231.249.36"
+alias ec="emacsclient -t"
+alias es="emacs --daemon"
+alias p3="/usr/local/bin/python3"
+alias ctags="/usr/local/bin/ctags"
+
+export PS1="%K{white}%F{red}%n:%F{green}%1~ %F{blue}%?%k%F{magenta}%#>%f"
+
+
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#
+#                               Golang                                       +
+#
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
+export GOPATH="/Users/chenjianyong/go"
+#export GOPROXY=https://goproxy.io
+export PATH=$PATH:$GOPATH/bin
+export GO111MODULE=on
+export GO15VENDOREXPERIMENT=1
+
+
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#
+#				                NGINX                                        +
+#
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
+alias ngx="/usr/local/nginx/sbin/nginx"
+alias configure="./configure --with-debug"
+
+
+
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#
+#				                FlatBuffers                                  +
+#
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
+alias flac="/Users/chenjianyong/Desktop/iGitHub/flatbuffers/flatc"
+
+
+
+
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#
 #				                Personal Scripts                             +
 #
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
@@ -8,3 +96,7 @@
 function weather() {
     curl -s "wttr.in/$1?m1"
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+fpath=(~/.zsh $fpath)

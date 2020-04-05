@@ -317,13 +317,99 @@ au FocusGained * :checktime
 " set updatetime=100                       " update frequency
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           More involved tweaks                          "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Unicode support (taken from http://vim.wikia.com/wiki/Working_with_Unicode)
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
+
+" Source: https://vi.stackexchange.com/a/456
+fun! s:TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+
+
+" TODO: split this into separate plugin
+fun! VisualSearch(direction) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        execute "Ack " . l:pattern . ' %'
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 mapping                                 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" my <leader> is space key
 let mapleader = "\<Space>"
+
+" my <localleader> is ','
 let maplocalleader = ","
+
+"Basically you press * or # to search for the current selection
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
+vnoremap <silent> gv :call VisualSearch('gv')<CR>
+
+
+" Use Q for formatting the current paragraph (or visual selection)
+vnoremap Q gq
+nnoremap Q gqap
+
+" This is quit all
+noremap <leader>q :qa<cr>
+
+" for faster scrolling
+" TODO: create a command for scrolling by ~70% of the window height
+noremap <m-j> 15gj
+noremap <m-k> 15gk
+
+" on macs the alt key is inconvenient to press, so let's also map to ctrl
+noremap <c-j> 15gj
+noremap <c-k> 15gk
+
+" Switches to the previous buffer that was shown in the current window, but also
+" closes the current buffer before switching to the previous one
+" noremap <leader>bq <c-^> :bd #<cr>
+
+" Switch to the directory of the open buffer
+noremap <leader>cd :cd %:p:h<cr>
+
+" Toggle and untoggle spell checking
+noremap <leader>ss :setlocal spell! spelllang=en_us<cr>
+
+" spelling shortcuts using <leader>
+" ]s next misspelled word
+" [s previous misspelled word
+" zg add to dict
+" z= get suggestions
+noremap <leader>sn ]s
+noremap <leader>sp [s
+noremap <leader>sa zg
+noremap <leader>su z=
 
 
 " 重新打开文件时，回到上一次退出的位置

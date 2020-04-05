@@ -87,12 +87,12 @@ let xml_use_xhtml = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           reset vimrc augroup                           "
+"                           reset laputa augroup                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" We reset the vimrc augroup. Autocommands are added to this group throughout
+" We reset the laputa augroup. Autocommands are added to this group throughout
 " the file
-augroup vimrc
+augroup laputa
   au!
 augroup END
 
@@ -221,7 +221,7 @@ set tags=./tags;/
 
 " turns off all error bells, visual or otherwise
 set noerrorbells visualbell t_vb=
-au vimrc GUIEnter * set visualbell t_vb=
+au laputa GUIEnter * set visualbell t_vb=
 
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -413,7 +413,7 @@ noremap <leader>su z=
 
 
 " 重新打开文件时，回到上一次退出的位置
-augroup backtolastpos
+augroup laputa
     autocmd!
     autocmd BufReadPost *
                 \ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -933,6 +933,7 @@ inoremap <silent><expr> <TAB>
 
 " Use <Tab> and <S-Tab> for navigate completion list
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" S: shift
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Use <cr> to confirm complete
@@ -965,18 +966,6 @@ let g:vista#renderer#enable_icon = 1
 "\   "function": "\uf794",
 "\   "variable": "\uf71b",
 "\  }
-
-" function! NearestMethodOrFunction() abort
-"   return get(b:, 'vista_nearest_method_or_function', '')
-" endfunction
-
-" set statusline+=%{NearestMethodOrFunction()}
-
-" By default vista.vim never run if you don't call it explicitly.
-"
-" If you want to show the nearest function in your statusline automatically,
-" you can add the following line to your vimrc
-" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 
 
@@ -1014,5 +1003,5 @@ if has("autocmd")
 endif
 
 
-"highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
-"highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
+highlight PMenu ctermfg=0 ctermbg=241 guifg=black guibg=darkgrey
+highlight PMenuSel ctermfg=237 ctermbg=2 guifg=darkgrey guibg=black

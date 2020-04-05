@@ -853,6 +853,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> t defx#do_action('drop', 'tabe')
   nnoremap <silent><buffer><expr> o defx#do_action('open_tree')
   nnoremap <silent><buffer><expr> O defx#do_action('open_tree_recursive')
+  nnoremap <silent><buffer><expr> q defx#do_action('quit')
   nnoremap <silent><buffer><expr> C defx#do_action('copy')
   nnoremap <silent><buffer><expr> P defx#do_action('paste')
   nnoremap <silent><buffer><expr> M defx#do_action('rename')
@@ -860,7 +861,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> A defx#do_action('new_multiple_files')
   nnoremap <silent><buffer><expr> U defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
-  nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select')
+  nnoremap <silent><buffer><expr> S defx#do_action('toggle_select')
   nnoremap <silent><buffer><expr> R defx#do_action('redraw')
 endfunction
 

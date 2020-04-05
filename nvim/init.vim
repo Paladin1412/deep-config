@@ -18,6 +18,8 @@ Plug 'tenfyzhong/CompleteParameter.vim'                     " 函数参数补全
 " tag 相关插件
 Plug 'liuchengxu/vista.vim'                                 " 侧边栏显示 tag 结构
 
+Plug 'vhdirk/vim-cmake'
+
 " 快速搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }           " 文件、tag、buffer 搜索(非常快)
 Plug 'liuchengxu/vim-clap'                                  " 弹窗搜索各种
@@ -160,9 +162,9 @@ set magic               " change the way backslashes are used in search patterns
 set bs=indent,eol,start " Allow backspacing over everything in insert mode
 set nobackup            " no backup~ files.
 
-set tabstop=2           " number of spaces a tab counts for
-set shiftwidth=2        " spaces for autoindents
-set softtabstop=2
+set tabstop=4           " number of spaces a tab counts for
+set shiftwidth=4        " spaces for autoindents
+set softtabstop=4
 set shiftround          " makes indenting a multiple of shiftwidth
 set expandtab           " turn a tab into spaces
 set laststatus=2        " the statusline is now always shown
@@ -621,13 +623,25 @@ let g:which_key_map['l'] = {
 let g:which_key_map['f'] = {
     \ 'name' : '+LeaderF'   ,
     \ 'f': 'file'           ,
-    \ 'b': 'buffers'        ,
+    \ 'b': 'buffer'         ,
     \ 'm': 'mru'            ,
     \ 't': 'buftag'         ,
     \ 'l': 'line'           ,
     \ 's': 'self'           ,
     \ 'r': 'rg'             ,
     \ 'c': 'colorscheme'    ,
+    \ 'h': 'help'           ,
+    \ 'F': 'function'       ,
+    \ 'w': 'window'         ,
+    \ 'H': 'history'        ,
+    \ 'C': 'command'        ,
+    \ 'a': {
+        \ 'name': '+all'        ,
+        \ 'b': 'buffer'         ,
+        \ 'l': 'line'           ,
+        \ 't': 'buftag'         ,
+        \ 'F': 'function'       ,
+        \ }
     \ }
 
 
@@ -800,6 +814,15 @@ noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 noremap <leader>fs :<C-U><C-R>=printf("Leaderf self %s", "")<CR><CR>
 noremap <leader>fr :<C-U><C-R>=printf("Leaderf rg %s", "")<CR><CR>
 noremap <leader>fc :<C-U><C-R>=printf("Leaderf colorscheme %s", "")<CR><CR>
+noremap <leader>fF :<C-U><C-R>=printf("Leaderf function %s", "")<CR><CR>
+noremap <leader>fh :<C-U><C-R>=printf("Leaderf help %s", "")<CR><CR>
+noremap <leader>fw :<C-U><C-R>=printf("Leaderf window %s", "")<CR><CR>
+noremap <leader>fH :<C-U><C-R>=printf("Leaderf history %s", "")<CR><CR>
+noremap <leader>fC :<C-U><C-R>=printf("Leaderf command %s", "")<CR><CR>
+noremap <leader>fab :LeaderfBufferAll<CR>
+noremap <leader>fal :LeaderfLineAll<CR>
+noremap <leader>fat :LeaderfBufTagAll<CR>
+noremap <leader>faF :LeaderfFunctionAll<CR>
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>

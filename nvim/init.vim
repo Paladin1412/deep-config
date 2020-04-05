@@ -102,9 +102,9 @@ augroup END
 "                        turn on filetype plugins                         "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-filetype on                              " enable file type detection
-filetype plugin on                       " load the plugin for specific file types
-filetype indent on                       " automatically indent code
+filetype on             " enable file type detection
+filetype plugin on      " load the plugin for specific file types
+filetype indent on      " automatically indent code
 
 
 
@@ -113,21 +113,21 @@ filetype indent on                       " automatically indent code
 "                                 basic                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme gruvbox                     " colorscheme
-syntax enable                           " enable syntax highlighting
-set background=dark                     " enable for dark terminals
-set scrolloff=2                         " 2 lines above/below cursor when scrolling
-set showmatch                           " show matching bracket (briefly jump)
-set matchtime=2                         " reduces matching paren blink time from the 5[00]ms def
-set showmode                            " show mode in status bar (insert/replace/...)
-set showcmd                             " show typed command in status bar
-set ruler                               " show cursor position in status bar
-set title                               " show file in titlebar
-set undofile                            " stores undo state even when files are closed (in undodir)
-set cursorline                          " highlights the current line
-set winaltkeys=no                       " turns of the Alt key bindings to the gui menu
-set nu                                  " show line number
-set relativenumber                      " relative line number
+colorscheme gruvbox     " colorscheme
+syntax enable           " enable syntax highlighting
+set background=dark     " enable for dark terminals
+set scrolloff=2         " 2 lines above/below cursor when scrolling
+set showmatch           " show matching bracket (briefly jump)
+set matchtime=2         " reduces matching paren blink time from the 5[00]ms def
+set showmode            " show mode in status bar (insert/replace/...)
+set showcmd             " show typed command in status bar
+set ruler               " show cursor position in status bar
+set title               " show file in titlebar
+set undofile            " stores undo state even when files are closed (in undodir)
+set cursorline          " highlights the current line
+set winaltkeys=no       " turns of the Alt key bindings to the gui menu
+set nu                  " show line number
+set relativenumber      " relative line number
 
 
 
@@ -181,6 +181,11 @@ set undolevels=1000     " use many levels of undo
 set autoread            " auto read when a file is changed from the outside
 set mouse=a             " enables the mouse in all modes
 set foldlevelstart=99   " all folds open by default
+
+set foldmethod=indent
+set splitright          " show at right when spliting
+set confirm             " confirm :q in case of unsaved changes
+set nojoinspaces        " no extra space after '.' when join lines
 
 
 " toggles vim's paste mode; when we want to paste something into vim from a
@@ -294,27 +299,6 @@ au FocusLost * silent! wa
 " Makes neovim GUI's implement 'autoread' like gvim does. See:
 "   https://github.com/neovim/neovim/issues/1936
 au FocusGained * :checktime
-
-" set nocompatible                         " use vim mode instead of pure Vi, must be the first instruction
-" set encoding=utf-8                       " encoding used for display file
-" set foldmethod=indent
-" set splitright                           " show at right when spliting
-" set confirm                              " confirm :q in case of unsaved changes
-
-" " edit settings
-" set backspace=indent,eol,start           " backspacing over everything in the insert mode
-" set nojoinspaces                         " no extra space after '.' when join lines
-" set shiftwidth=4                         " set indentation depth to 8 columns
-" set softtabstop=4                        " backspacing over spaces like over tabs
-" set tabstop=4                            " set tabulator length to 4 columns
-
-" " search settings
-" set hlsearch                             " highlight search results
-" set ignorecase                           " do case insensitive search...
-" set incsearch                            " do incremental search
-" set smartcase                            " ...unless capital lettters are used
-
-" set updatetime=100                       " update frequency
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -954,14 +938,17 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 
 " To enable fzf's preview window set g:vista_fzf_preview.
-" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+" The elements of g:vista_fzf_preview will be passed as arguments to
+" fzf#vim#with_preview()
 " For example:
 let g:vista_fzf_preview = ['right:50%']
 
-" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+" Ensure you have installed some decent font to show these pretty symbols, then
+" you can enable icon for the kind.
 let g:vista#renderer#enable_icon = 1
 
-" The default icons can't be suitable for all the filetypes, you can extend it as you wish.
+" The default icons can't be suitable for all the filetypes, you can extend it
+" as you wish.
 "let g:vista#renderer#icons = {
 "\   "function": "\uf794",
 "\   "variable": "\uf71b",

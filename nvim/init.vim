@@ -1,9 +1,6 @@
-"============================================================================="
-"
-"                               ➢基本设置
-"
-"============================================================================="
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 basic                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible                        " use vim mode instead of pure Vi, must be the first instruction
 
@@ -35,7 +32,7 @@ set expandtab                            " fill tabs with spaces
 set nojoinspaces                         " no extra space after '.' when join lines
 set shiftwidth=4                         " set indentation depth to 8 columns
 set softtabstop=4                        " backspacing over spaces like over tabs
-set tabstop=4                            " set tabulator length to 8 columns
+set tabstop=4                            " set tabulator length to 4 columns
 " set wrap
 " set textwidth=80                       " wrap lines automatically at 80th column
 
@@ -61,11 +58,10 @@ syntax enable                            " enable syntax highlighting
 set updatetime=100                       " update frequency
 
 
-"============================================================================="
-"
-"                            ➢个人键盘映射
-"
-"============================================================================="
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 mapping                                 "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let mapleader = "\<Space>"
 let maplocalleader = ","
@@ -82,22 +78,17 @@ augroup END
 
 
 
-"============================================================================="
-"
-"                   Favourite ColorScheme
-"
-"============================================================================="
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 colorscheme                             "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ego, peachpuff, leo, kalt, gruvbox, flattown, lettuce
 " getafe
 
 
 
-
-"============================================================================="
-"
-"                               ➢ 插件中心
-"
-"============================================================================="
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 vim-plug                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.vim/plugged')
 
@@ -118,6 +109,8 @@ Plug 'liuchengxu/vista.vim'                                             " 侧边
 " 快速搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                       " 文件、tag、buffer 搜索(非常快)
 Plug 'liuchengxu/vim-clap'                                              " 弹窗搜索各种
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 
 "  文件树
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }               " 文件树
@@ -172,29 +165,9 @@ call plug#end()
 
 
 
-
-
-
-
-
-"============================================================================="
-"
-"                               ➢插件配置
-"
-"============================================================================="
-
-"highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
-"highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
-
-
-
-
-
-" ################################################
-
-    "PLUGIN:  Complete Parameter
-
-" ################################################
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 complete-parameter                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 inoremap <silent><expr> ( complete_parameter#pre_complete("()")
 smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
@@ -204,14 +177,9 @@ imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 
 
 
-
-
-
-" #########################################################
-
-    "PLUGIN: AsyncRun
-
-" #########################################################
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 async-run                               "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 自动打开quickfix window，高度为13
 let g:asyncrun_open = 13
@@ -235,14 +203,9 @@ nnoremap <silent> <F5> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_
 
 
 
-
-
-
-" #########################################################
-
-    " PLUGIN: ALE
-
-" #########################################################
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 ale                                     "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 自定义图标
 let g:ale_sign_error = '✗'
@@ -286,86 +249,43 @@ let g:ale_c_parse_makefile = 1
 
 
 
-
-" #########################################################
-
-    "PLUGIN: vim-preview
-
-" #########################################################
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 vim-preview                             "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
 autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 
 
 
-
-
-
-" #########################################################
-
-    "PLUGIN: indent line
-
-" #########################################################
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 indentline                              "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:indentLine_char = '|'
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 eachodoc                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-
-" #########################################################
-
-    "PLUGIN:  echodoc
-
-" #########################################################
 set cmdheight=2
 let g:echodoc#enable_at_startup = 1
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 openresty                               "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-
-" #########################################################
-
-    "PLUGIN:  other settings
-
-" #########################################################
-
-set shortmess+=c
-" https://stackoverflow.com/questions/19580157/to-hide-user-defined-completion-message-at-vim
-
-" 高亮像NOTE这样的单词
-if has("autocmd")
-  " Highlight TODO, FIXME, NOTE, etc.
-  if v:version > 701
-    autocmd Syntax * call matchadd('Todo',  '\W\zs\(NOTE\|TODO\|FIXME\|CHANGED\|BUG\|HACK\|PS\|ATTENTION\|QUESTION\|OPTIMIZE\)')
-    autocmd Syntax * call matchadd('Debug', '\W\zs\(INFO\|IDEA\)')
-  endif
-endif
-
-
-
-
-
-
-" #########################################################
-
-    "PLUGIN: Openresty Lua
-
-" #########################################################
 autocmd BufRead,BufNewFile nginx_*.conf set filetype=nginx
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 vim-which-key                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-
-" #########################################################
-
-    "PLUGIN: Vim-Which-Key
-
-" #########################################################
 set timeoutlen=300
 
 let g:which_key_map =  {}
@@ -584,15 +504,18 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 
 
+nnoremap <silent> <leader>zf :GoFmt<cr>
+let g:which_key_map['z'] = {
+    \ 'name'  : '+z7z8' ,
+    \ 'f': 'gofmt'      ,
+    \ }
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 undotree                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" ################################################
-"
-"   "PLUGIN: undo-tree
-"
-" ################################################
 nnoremap <Leader>ut :UndotreeToggle<cr>
 let g:undotree_WindowLayout = 3
 if has("persistent_undo")
@@ -602,15 +525,10 @@ endif
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 leaderf                                 "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-
-
-" ################################################
-"
-"   "PLUGIN: LeaderF
-"
-" ################################################
 " don't show the help in normal mode
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 0
@@ -641,15 +559,10 @@ noremap go :<C-U>Leaderf! rg --recall<CR>
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 defx.vim                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-
-
-" ################################################
-"
-"   "PLUGIN: defx
-"
-" ################################################
 nnoremap <leader>od :Defx -columns=icons:indent:filename:type<CR>
 " Avoid the white space highting issue
 autocmd FileType defx match ExtraWhitespace /^^/
@@ -734,7 +647,7 @@ function! s:defx_my_settings() abort
 
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>
-  \ defx#do_action('open')
+  \ defx#do_action('open', 'vsplit')
 
   nnoremap <silent><buffer><expr> c
   \ defx#do_action('copy')
@@ -753,7 +666,7 @@ function! s:defx_my_settings() abort
 
   nnoremap <silent><buffer><expr> P
   \ defx#do_action('open', 'pedit')
-"  nnoremap <silent><buffer><expr> l
+  nnoremap <silent><buffer><expr> l
   \ defx#do_action('open_or_close_tree')
 
   nnoremap <silent><buffer><expr> K
@@ -827,31 +740,26 @@ endfunction
 
 
 
-" ################################################
-"
-"   "PLUGIN: markdown-preview.nvim
-"
-" ################################################
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 markdown-preview.nvim                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " do not close the preview tab when switching to other buffers
 let g:mkdp_auto_close = 0
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 coc.nvim                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-
-
-" ################################################
-"
-"   "PLUGIN: coc.nvim
-"
-" ################################################
-" use <tab> for trigger completion and navigate to the next complete item
+"use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
+" use tab for completion selection
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -869,13 +777,9 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 
 
-
-
-" ################################################
-"
-"   "PLUGIN: Vista
-"
-" ################################################
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 vim-vista                               "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " How each level is indented and what to prepend.
 " This could make the display more compact or more spacious.
@@ -910,25 +814,39 @@ let g:vista#renderer#enable_icon = 1
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 rainbow                                 "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-"" ################################################
-"
-"   "PLUGIN: rainbow
-"
-" ################################################
 let g:rainbow_active = 1
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 vim-signify                             "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-
-
-" ################################################
-"
-"   "PLUGIN: vim-signify
-"
-" ################################################
 set updatetime=100
 let g:signify_sign_change = "~"
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 misc                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set shortmess+=c
+" https://stackoverflow.com/questions/19580157/to-hide-user-defined-completion-message-at-vim
+
+" 高亮像NOTE这样的单词
+if has("autocmd")
+  " Highlight TODO, FIXME, NOTE, etc.
+  if v:version > 701
+    autocmd Syntax * call matchadd('Todo',  '\W\zs\(NOTE\|TODO\|FIXME\|CHANGED\|BUG\|HACK\|PS\|ATTENTION\|QUESTION\|OPTIMIZE\)')
+    autocmd Syntax * call matchadd('Debug', '\W\zs\(INFO\|IDEA\)')
+  endif
+endif
+
+
+"highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
+"highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black

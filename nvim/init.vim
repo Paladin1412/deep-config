@@ -1038,3 +1038,5 @@ endif
 
 highlight PMenu ctermfg=0 ctermbg=241 guifg=black guibg=darkgrey
 highlight PMenuSel ctermfg=237 ctermbg=2 guifg=darkgrey guibg=black
+highlight CursorLine cterm=None ctermfg=237 ctermfg=2 guibg=darkred guifg=black
+highlight CursorColumn cterm=NONE ctermfg=237 ctermfg=3 guibg=darkred guifg=black

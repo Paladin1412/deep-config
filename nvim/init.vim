@@ -635,6 +635,14 @@ let g:which_key_map['f'] = {
     \ 'w': 'window'         ,
     \ 'H': 'history'        ,
     \ 'C': 'command'        ,
+    \ 'g': {
+        \ 'name': '+gtags'      ,
+        \ 'd': 'definition'     ,
+        \ 'r': 'references'     ,
+        \ 'n': 'next'           ,
+        \ 'p': 'previous'       ,
+        \ 'o': 'recall'         ,
+        \ },
     \ 'a': {
         \ 'name': '+all'        ,
         \ 'b': 'buffer'         ,
@@ -817,12 +825,23 @@ noremap <leader>fc :<C-U><C-R>=printf("Leaderf colorscheme %s", "")<CR><CR>
 noremap <leader>fF :<C-U><C-R>=printf("Leaderf function %s", "")<CR><CR>
 noremap <leader>fh :<C-U><C-R>=printf("Leaderf help %s", "")<CR><CR>
 noremap <leader>fw :<C-U><C-R>=printf("Leaderf window %s", "")<CR><CR>
-noremap <leader>fH :<C-U><C-R>=printf("Leaderf history %s", "")<CR><CR>
+noremap <leader>fH :<C-U><C-R>=printf("Leaderf searchHistory %s", "")<CR><CR>
 noremap <leader>fC :<C-U><C-R>=printf("Leaderf command %s", "")<CR><CR>
 noremap <leader>fab :LeaderfBufferAll<CR>
 noremap <leader>fal :LeaderfLineAll<CR>
 noremap <leader>fat :LeaderfBufTagAll<CR>
 noremap <leader>faF :LeaderfFunctionAll<CR>
+
+" should use `Leaderf gtags --update` first
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'
+let g:Lf_RootMarkers = ['.git', '.svn', '.hg', '.root']
+" TODO: what does these commands do actually?
+noremap <leader>fgr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fgd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fgo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fgn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fgp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
@@ -830,6 +849,10 @@ noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 noremap go :<C-U>Leaderf! rg --recall<CR>
 
+" noremap <leader>fpd <Plug>(LeaderfGtagsDefinition)
+" noremap <leader>fpr <Plug>(LeaderfGtagsReference)
+" noremap <leader>fps <Plug>(LeaderfGtagsSymbol)
+" noremap <leader>fpg <Plug>(LeaderfGtagsGrep)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

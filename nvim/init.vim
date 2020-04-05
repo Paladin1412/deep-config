@@ -78,6 +78,38 @@ call plug#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           pre-filetype tweaks                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" these are for the xmledit plugin
+let xml_use_xhtml = 1
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           reset vimrc augroup                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" We reset the vimrc augroup. Autocommands are added to this group throughout
+" the file
+augroup vimrc
+  au!
+augroup END
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                        turn on filetype plugins                         "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+filetype on                              " enable file type detection
+filetype plugin on                       " load the plugin for specific file types
+filetype indent on                       " automatically indent code
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 basic                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -123,11 +155,6 @@ set smartcase                            " ...unless capital lettters are used
 
 " for lightline has shown mode
 set noshowmode
-
-" file type specific settings
-filetype on                              " enable file type detection
-filetype plugin on                       " load the plugin for specific file types
-filetype indent on                       " automatically indent code
 
 " syntax highlighting
 set background=dark

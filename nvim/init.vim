@@ -1,4 +1,83 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 vim-plug                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+call plug#begin('~/.vim/plugged')
+
+" 语法检查
+Plug 'w0rp/ale'                                                         " linter
+
+" coc 补全框架
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                         " coc 补全框架
+
+" 补全插件
+Plug 'MaskRay/ccls'                                                     " C 系列补全
+Plug 'Shougo/echodoc.vim'                                               " 函数文档补全
+Plug 'tenfyzhong/CompleteParameter.vim'                                 " 函数参数补全
+
+" tag 相关插件
+Plug 'liuchengxu/vista.vim'                                             " 侧边栏显示 tag 结构
+
+" 快速搜索
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                       " 文件、tag、buffer 搜索(非常快)
+Plug 'liuchengxu/vim-clap'                                              " 弹窗搜索各种
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+
+"  文件树
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }               " 文件树
+Plug 'kristijanhusak/defx-icons'                                        " 文件图标
+Plug 'kristijanhusak/defx-git'                                          " 文件中 git 状态
+
+" git 相关
+Plug 'tpope/vim-fugitive'                                               " 集成各种 git 命令
+Plug 'mhinz/vim-signify'                                                " 侧边栏显示修改状态(不仅仅支持 git)
+"Plug 'airblade/vim-gitgutter'                                           " 侧边栏显示修改状态(仅支持 git)
+
+" 美化
+Plug 'mhinz/vim-startify'                                               " 启动页面
+Plug 'Yggdroot/indentLine'                                              " 缩进线
+Plug 'luochen1990/rainbow'                                              " 彩虹🌈括号
+Plug 'liuchengxu/eleline.vim'                                           " status line
+Plug 'flazz/vim-colorschemes'                                           " 各种配色方案
+Plug 'bronson/vim-trailing-whitespace'                                  " 高亮尾空白
+Plug 'octol/vim-cpp-enhanced-highlight'                                 " C++ 语法高亮增强
+Plug 'ouzhenkun/vim-tabline'                                            " 显示 tab 信息
+
+" 快速移动
+Plug 'easymotion/vim-easymotion'                                        "
+Plug 'justinmk/vim-sneak'                                               "
+Plug 'andymass/vim-matchup'                                             " 快速匹配跳转，不仅仅匹配符号，还有各种关键字匹配，比如 if-fi
+
+" 原始功能增强
+Plug 'mg979/vim-visual-multi'                                           " 多光标操作
+Plug 'mbbill/undotree'                                                  " 树形显示历史操作
+Plug 'jiangmiao/auto-pairs'                                             " 括号自动匹配
+Plug 'junegunn/vim-easy-align'                                          " TODO: 这是啥插件来着？
+Plug 'liuchengxu/vim-which-key'                                         " 和 spacemacs 类似的
+Plug 'skywind3000/vim-preview'                                          " 预览窗口
+Plug 'skywind3000/asyncrun.vim'                                         " 异步运行
+Plug 'tpope/vim-commentary'                                             " 快速注释
+
+
+" Go 语言插件
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" markdown 插件
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " markdown 预览
+
+" 语法高亮插件
+Plug 'spacewander/openresty-vim'
+Plug 'chr4/nginx.vim'
+Plug 'solarnz/thrift.vim'
+
+" 新插件试用
+Plug 'editorconfig/editorconfig-vim'                                    " 这是啥插件来着？
+
+call plug#end()
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 basic                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -83,85 +162,6 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ego, peachpuff, leo, kalt, gruvbox, flattown, lettuce
 " getafe
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 vim-plug                                "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-call plug#begin('~/.vim/plugged')
-
-" 语法检查
-Plug 'w0rp/ale'                                                         " linter
-
-" coc 补全框架
-Plug 'neoclide/coc.nvim', {'branch': 'release'}                         " coc 补全框架
-
-" 补全插件
-Plug 'MaskRay/ccls'                                                     " C 系列补全
-Plug 'Shougo/echodoc.vim'                                               " 函数文档补全
-Plug 'tenfyzhong/CompleteParameter.vim'                                 " 函数参数补全
-
-" tag 相关插件
-Plug 'liuchengxu/vista.vim'                                             " 侧边栏显示 tag 结构
-
-" 快速搜索
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                       " 文件、tag、buffer 搜索(非常快)
-Plug 'liuchengxu/vim-clap'                                              " 弹窗搜索各种
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
-
-"  文件树
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }               " 文件树
-Plug 'kristijanhusak/defx-icons'                                        " 文件图标
-Plug 'kristijanhusak/defx-git'                                          " 文件中 git 状态
-
-" git 相关
-Plug 'tpope/vim-fugitive'                                               " 集成各种 git 命令
-Plug 'mhinz/vim-signify'                                                " 侧边栏显示修改状态(不仅仅支持 git)
-"Plug 'airblade/vim-gitgutter'                                           " 侧边栏显示修改状态(仅支持 git)
-
-" 美化
-Plug 'mhinz/vim-startify'                                               " 启动页面
-Plug 'Yggdroot/indentLine'                                              " 缩进线
-Plug 'luochen1990/rainbow'                                              " 彩虹🌈括号
-Plug 'liuchengxu/eleline.vim'                                           " status line
-Plug 'flazz/vim-colorschemes'                                           " 各种配色方案
-Plug 'bronson/vim-trailing-whitespace'                                  " 高亮尾空白
-Plug 'octol/vim-cpp-enhanced-highlight'                                 " C++ 语法高亮增强
-Plug 'ouzhenkun/vim-tabline'                                            " 显示 tab 信息
-
-" 快速移动
-Plug 'easymotion/vim-easymotion'                                        "
-Plug 'justinmk/vim-sneak'                                               "
-Plug 'andymass/vim-matchup'                                             " 快速匹配跳转，不仅仅匹配符号，还有各种关键字匹配，比如 if-fi
-
-" 原始功能增强
-Plug 'mg979/vim-visual-multi'                                           " 多光标操作
-Plug 'mbbill/undotree'                                                  " 树形显示历史操作
-Plug 'jiangmiao/auto-pairs'                                             " 括号自动匹配
-Plug 'junegunn/vim-easy-align'                                          " TODO: 这是啥插件来着？
-Plug 'liuchengxu/vim-which-key'                                         " 和 spacemacs 类似的
-Plug 'skywind3000/vim-preview'                                          " 预览窗口
-Plug 'skywind3000/asyncrun.vim'                                         " 异步运行
-Plug 'tpope/vim-commentary'                                             " 快速注释
-
-
-" Go 语言插件
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" markdown 插件
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " markdown 预览
-
-" 语法高亮插件
-Plug 'spacewander/openresty-vim'
-Plug 'chr4/nginx.vim'
-Plug 'solarnz/thrift.vim'
-
-" 新插件试用
-Plug 'editorconfig/editorconfig-vim'                                    " 这是啥插件来着？
-
-call plug#end()
 
 
 

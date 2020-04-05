@@ -113,55 +113,208 @@ filetype indent on                       " automatically indent code
 "                                 basic                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set nocompatible                        " use vim mode instead of pure Vi, must be the first instruction
+colorscheme gruvbox                     " colorscheme
+syntax enable                           " enable syntax highlighting
+set background=dark                     " enable for dark terminals
+set scrolloff=2                         " 2 lines above/below cursor when scrolling
+set showmatch                           " show matching bracket (briefly jump)
+set matchtime=2                         " reduces matching paren blink time from the 5[00]ms def
+set showmode                            " show mode in status bar (insert/replace/...)
+set showcmd                             " show typed command in status bar
+set ruler                               " show cursor position in status bar
+set title                               " show file in titlebar
+set undofile                            " stores undo state even when files are closed (in undodir)
+set cursorline                          " highlights the current line
+set winaltkeys=no                       " turns of the Alt key bindings to the gui menu
+set nu                                  " show line number
+set relativenumber                      " relative line number
 
-set history=100                         " lines of history VIM has to remember
-set so=7                                " set 7 lines to the cursor - when moving vertically using j/k
-set autoread                            " auto read when a file is changed from the outside
 
 
-" display settings
-set nu                                   " show line number
-set relativenumber                       " relative line number
-set encoding=utf-8                       " encoding used for display file
-set guifont=Fira\ Code:h12
-set ruler                                " show the cursor position all the time
-set showmatch                            " highlight matching braces
-" set showmode                           " show insert/replace/visual mode
-set foldmethod=indent
+" When you type the first tab, it will complete as much as possible, the second
+" tab hit will provide a list, the third and subsequent tabs will cycle through
+" completion options so you can complete the file without further keys
+set wildmode=longest,list,full
+set wildmenu            " completion with menu
+" This changes the default display of tab and CR chars in list mode
+set listchars=tab:▸\ ,eol:¬
 
-" window settings
-set splitright                           " show at right when spliting
 
-" write settings
-set confirm                              " confirm :q in case of unsaved changes
-set nobackup                             " do not keep the backup~ file
+" The "longest" option makes completion insert the longest prefix of all
+" the possible matches; see :h completeopt
+set completeopt=menu,menuone,longest
+set switchbuf=useopen,usetab
 
-" edit settings
-set backspace=indent,eol,start           " backspacing over everything in the insert mode
-set expandtab                            " fill tabs with spaces
-set nojoinspaces                         " no extra space after '.' when join lines
-set shiftwidth=4                         " set indentation depth to 8 columns
-set softtabstop=4                        " backspacing over spaces like over tabs
-set tabstop=4                            " set tabulator length to 4 columns
-" set wrap
-" set textwidth=80                       " wrap lines automatically at 80th column
+" EDITOR SETTINGS
+set ignorecase          " case insensitive searching
+set smartcase           " but become case sensitive if you type uppercase characters
+" this can cause problems with other filetypes
+" see comment on this SO question http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim/234578#234578
+"set smartindent         " smart auto indenting
+set autoindent          " on new lines, match indent of previous line
+set copyindent          " copy the previous indentation on autoindenting
+set cindent             " smart indenting for c-like code
+set cino=b1,g0,N-s,t0,(0,W4  " see :h cinoptions-values
+set smarttab            " smart tab handling for indenting
+set magic               " change the way backslashes are used in search patterns
+set bs=indent,eol,start " Allow backspacing over everything in insert mode
+set nobackup            " no backup~ files.
 
-" search settings
-set hlsearch                             " highlight search results
-set ignorecase                           " do case insensitive search...
-set incsearch                            " do incremental search
-set smartcase                            " ...unless capital lettters are used
+set tabstop=2           " number of spaces a tab counts for
+set shiftwidth=2        " spaces for autoindents
+set softtabstop=2
+set shiftround          " makes indenting a multiple of shiftwidth
+set expandtab           " turn a tab into spaces
+set laststatus=2        " the statusline is now always shown
+set noshowmode          " don't show the mode ("-- INSERT --") at the bottom
 
-" for lightline has shown mode
-set noshowmode
+" misc settings
+set fileformat=unix     " file mode is unix
+set fileformats=unix,dos,mac   " detects unix, dos, mac file formats in that order
 
-" syntax highlighting
-set background=dark
-colorscheme gruvbox                      " colorscheme
-syntax enable                            " enable syntax highlighting
+set viminfo='20,\"500   " remember copy registers after quitting in the .viminfo
+                        " file -- 20 jump links, regs up to 500 lines'
 
-set updatetime=100                       " update frequency
+set hidden              " allows making buffers hidden even with unsaved changes
+set history=1000        " remember more commands and search history
+set undolevels=1000     " use many levels of undo
+set autoread            " auto read when a file is changed from the outside
+set mouse=a             " enables the mouse in all modes
+set foldlevelstart=99   " all folds open by default
+
+
+" toggles vim's paste mode; when we want to paste something into vim from a
+" different application, turning on paste mode prevents the insertion of extra
+" whitespace
+set pastetoggle=<F7>
+
+" Right-click on selection should bring up a menu
+set mousemodel=popup_setpos
+
+" With this, the gui (gvim and macvim) now doesn't have the toolbar, the left
+" and right scrollbars and the menu.
+set guioptions-=T
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set guioptions-=m
+set guioptions-=M
+
+" this makes sure that shell scripts are highlighted
+" as bash scripts and not sh scripts
+let g:is_posix = 1
+
+" tries to avoid those annoying "hit enter to continue" messages
+" if it still doesn't help with certain commands, add a second <cr>
+" at the end of the map command
+set shortmess=a
+
+" this solves the "unable to open swap file" errors on Win7
+set dir=~/tmp,/var/tmp,/tmp,$TEMP
+set undodir=~/tmp,/var/tmp,/tmp,$TEMP
+
+" Look for tag def in a "tags" file in the dir of the current file, then for
+" that same file in every folder above the folder of the current file, until the
+" root.
+set tags=./tags;/
+
+" turns off all error bells, visual or otherwise
+set noerrorbells visualbell t_vb=
+au vimrc GUIEnter * set visualbell t_vb=
+
+
+" Switch syntax highlighting on, when the terminal has colors
+if &t_Co > 2 || has("gui_running")
+  syntax on
+endif
+
+" none of these should be word dividers, so make them not be
+set iskeyword+=_,$,@,%,#
+
+" Number of screen lines to use for the command-line
+set cmdheight=2
+
+" allow backspace and cursor keys to cross line boundaries
+set whichwrap+=<,>,h,l
+set nohlsearch          " do not highlight searched-for phrases
+set incsearch           " ...but do highlight-as-I-type the search string
+set gdefault            " this makes search/replace global by default
+
+" enforces a specified line-length and auto inserts hard line breaks when we
+" reach the limit; in Normal mode, you can reformat the current paragraph with
+" gqap.
+set textwidth=80
+
+" this makes the color after the textwidth column highlighted
+set colorcolumn=+1
+
+" options for formatting text; see :h formatoptions
+set formatoptions=tcroqnj
+
+" This limits the size of the max number of items to show in Vim's popup menu
+" (which is used by YouCompleteMe).
+set pumheight=10
+
+" Post Vim 7.4, the "new" regexpengine (value 2) is the default and is slower
+" than the "old" enginer (value 1), which means syntax highlighting is slow.
+" Benchmarked on Vim 8.1.1576 with https://gist.github.com/glts/5646749 and the
+" new engine is now faster in almost all benchmarks! So we use value 0, which
+" usually picks the new engine unless it detects it would be slower, and then it
+" falls back to the old engine.
+set regexpengine=0
+
+" The alt (option) key on macs now behaves like the 'meta' key. This means we
+" can now use <m-x> or similar as maps. This is buffer local, and it can easily
+" be turned off when necessary (for instance, when we want to input special
+" characters) with :set nomacmeta.
+if has("gui_macvim")
+  set macmeta
+endif
+
+if has('unnamedplus')
+  " By default, Vim will not use the system clipboard when yanking/pasting to
+  " the default register. This option makes Vim use the system default
+  " clipboard.
+  " Note that on X11, there are _two_ system clipboards: the "standard" one, and
+  " the selection/mouse-middle-click one. Vim sees the standard one as register
+  " '+' (and this option makes Vim use it by default) and the selection one as
+  " '*'.
+  " See :h 'clipboard' for details.
+  set clipboard=unnamedplus,unnamed
+else
+  " Vim now also uses the selection system clipboard for default yank/paste.
+  set clipboard+=unnamed
+endif
+
+" Auto saving! Having used Intellij IDEA, autosave is the only way to go
+set autowriteall
+au FocusLost * silent! wa
+
+" Makes neovim GUI's implement 'autoread' like gvim does. See:
+"   https://github.com/neovim/neovim/issues/1936
+au FocusGained * :checktime
+
+" set nocompatible                         " use vim mode instead of pure Vi, must be the first instruction
+" set encoding=utf-8                       " encoding used for display file
+" set foldmethod=indent
+" set splitright                           " show at right when spliting
+" set confirm                              " confirm :q in case of unsaved changes
+
+" " edit settings
+" set backspace=indent,eol,start           " backspacing over everything in the insert mode
+" set nojoinspaces                         " no extra space after '.' when join lines
+" set shiftwidth=4                         " set indentation depth to 8 columns
+" set softtabstop=4                        " backspacing over spaces like over tabs
+" set tabstop=4                            " set tabulator length to 4 columns
+
+" " search settings
+" set hlsearch                             " highlight search results
+" set ignorecase                           " do case insensitive search...
+" set incsearch                            " do incremental search
+" set smartcase                            " ...unless capital lettters are used
+
+" set updatetime=100                       " update frequency
 
 
 

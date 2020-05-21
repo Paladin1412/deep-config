@@ -66,6 +66,7 @@ Plug 'tpope/vim-commentary'                                 " 快速注释
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " markdown 插件
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " markdown 预览
+Plug 'mzlogin/vim-markdown-toc'
 
 " 语法高亮插件
 Plug 'spacewander/openresty-vim'
@@ -74,6 +75,10 @@ Plug 'solarnz/thrift.vim'
 
 " 新插件试用
 Plug 'editorconfig/editorconfig-vim'                                    " 这是啥插件来着？
+
+Plug 'jceb/vim-orgmode'
+
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -118,10 +123,10 @@ filetype indent on      " automatically indent code
 colorscheme gruvbox     " colorscheme
 syntax enable           " enable syntax highlighting
 set background=dark     " enable for dark terminals
-set scrolloff=2         " 2 lines above/below cursor when scrolling
+set scrolloff=7         " 7 lines above/below cursor when scrolling
 set showmatch           " show matching bracket (briefly jump)
 set matchtime=2         " reduces matching paren blink time from the 5[00]ms def
-set showmode            " show mode in status bar (insert/replace/...)
+set noshowmode          " show mode in status bar (insert/replace/...)
 set showcmd             " show typed command in status bar
 set ruler               " show cursor position in status bar
 set title               " show file in titlebar
@@ -251,7 +256,7 @@ set gdefault            " this makes search/replace global by default
 " enforces a specified line-length and auto inserts hard line breaks when we
 " reach the limit; in Normal mode, you can reformat the current paragraph with
 " gqap.
-set textwidth=80
+" set textwidth=80
 
 " this makes the color after the textwidth column highlighted
 set colorcolumn=+1
@@ -538,6 +543,8 @@ autocmd BufRead,BufNewFile nginx_*.conf set filetype=nginx
 "                                 vim-which-key                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:which_key_use_floating_win = 1
+
 set timeoutlen=300
 
 let g:which_key_map =  {}
@@ -603,23 +610,6 @@ let g:which_key_map['w'] = {
     \ '?' : ['Windows'    , 'fzf-window']            ,
     \ }
 
-let g:which_key_map['l'] = {
-    \ 'name' : '+lsp'                                            ,
-    \ 'f' : ['LanguageClient#textDocument_formatting()'     , 'formatting']       ,
-    \ 'h' : ['LanguageClient#textDocument_hover()'          , 'hover']            ,
-    \ 'r' : ['LanguageClient#textDocument_references()'     , 'references']       ,
-    \ 'R' : ['LanguageClient#textDocument_rename()'         , 'rename']           ,
-    \ 's' : ['LanguageClient#textDocument_documentSymbol()' , 'document-symbol']  ,
-    \ 'S' : ['LanguageClient#workspace_symbol()'            , 'workspace-symbol'] ,
-    \ 'g' : {
-        \ 'name': '+goto',
-        \ 'd' : ['LanguageClient#textDocument_definition()'     , 'definition']       ,
-        \ 't' : ['LanguageClient#textDocument_typeDefinition()' , 'type-definition']  ,
-        \ 'i' : ['LanguageClient#textDocument_implementation()'  , 'implementation']  ,
-        \ },
-    \ }
-
-
 let g:which_key_map['f'] = {
     \ 'name' : '+LeaderF'   ,
     \ 'f': 'file'           ,
@@ -666,6 +656,8 @@ nnoremap <leader>tn :tabnext<CR>
 nnoremap <leader>tp :tabprev<CR>
 nnoremap <leader>tf :tabfirst<CR>
 nnoremap <leader>tl :tablast<CR>
+nnoremap <leader>tL :tabmove -1<CR>
+nnoremap <leader>tR :tabmove +1<CR>
 
 let g:which_key_map['t'] = {
     \ 'name' : '+tab'       ,
@@ -673,6 +665,8 @@ let g:which_key_map['t'] = {
     \ 'l'  : 'last tab'     ,
     \ 'n'  : 'next tab'     ,
     \ 'p'  : 'prev tab'     ,
+    \ 'L'  : 'move left'    ,
+    \ 'R'  : 'move right'   ,
     \ }
 
 
@@ -752,6 +746,7 @@ let g:which_key_map['c'] = {
         \ 'o'  : 'outline'          ,
         \ 's'  : 'symbols'          ,
         \ 'p'  : 'resume-last-list' ,
+        \ 'm'  : 'marketplace'      ,
         \ },
     \ }
 
@@ -1003,6 +998,19 @@ let g:vista#renderer#enable_icon = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 sneak                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:sneak#label = 1
+
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 rainbow                                 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -1038,5 +1046,7 @@ endif
 
 highlight PMenu ctermfg=0 ctermbg=241 guifg=black guibg=darkgrey
 highlight PMenuSel ctermfg=237 ctermbg=2 guifg=darkgrey guibg=black
-highlight CursorLine cterm=None ctermfg=237 ctermfg=2 guibg=darkred guifg=black
-highlight CursorColumn cterm=NONE ctermfg=237 ctermfg=3 guibg=darkred guifg=black
+" highlight CursorLine cterm=None ctermfg=237 ctermfg=2 guibg=darkred guifg=black
+" highlight CursorColumn cterm=NONE ctermfg=237 ctermfg=3 guibg=darkred guifg=black
+
+nnoremap <F3> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>

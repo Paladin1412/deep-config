@@ -9,7 +9,7 @@
     co = checkout
     br = branch
     df = diff
-    vdf = icdiff
+    vdf = icdiff            # vertical-split diff
     dfs = diff --staged
     rb = rebase
     mg = merge

@@ -112,6 +112,14 @@ Fira Code 字体，这里不用其他地方也得用。
 
 ### miscellaneous
 
+* [tmux](https://github.com/tmux/tmux/wiki)
+
+```sh
+% brew install tmux
+```
+
+窗口复用工具，，配合这个[小的配置](https://github.com/BalusChen/deep-config/blob/master/tmux/tmux.conf)，再也不用开一大堆窗口、Tab😎
+
 * [fzf](https://github.com/junegunn/fzf)
 
 命令行模糊查找器，不想使用 find 时可以用这个，但是面试问到 find 你就完了😱。
@@ -197,7 +205,7 @@ find 的替代品。
 
 * [tldr](https://github.com/tldr-pages/tldr)
 
-简化的、社区驱动的 man-page。下载了一个`tar.xz`的文件，不知道是该用`-j`还是`-z`还是，man 一下发现 doc 老长，找半天找不到？
+简化的、社区驱动的 man-page。下载了一个`tar.xz`的文件，不知道是该用`-j`还是`-z`还是，man 一下发现 doc 老长，找半天找不到？你值得拥有！
 
 ```sh
 % brew install tldr
@@ -213,23 +221,23 @@ diff 的升级版，带高亮，而且可以配合 git 一起用。
 
 * [ncdu](https://dev.yorhel.nl/ncdu)
 
-更好用的磁盘使用情况分析器，而不用忍受 du 的长串输出了：
+更好用的磁盘使用情况分析器，而不用忍受 du 的长串输出了。
 
 ```sh
 % brew install ncdu
 ```
 
-* [pydf](https://pypi.org/project/pydf/)
+* [mosh](https://mosh.org/)
 
-不知道该不该安装 pydf，感觉和 ncdu 的功能重叠了。
+ssh 的替代工具。相比于 ssh，它更加鲁棒。
 
 ```sh
-% pip3 install pydf --user
+% brew install mosh
 ```
 
 * [shellcheck](https://github.com/koalaman/shellcheck)
 
-用于 shell 脚本的静态检查工具，写 shell 总算可能轻松一点了。
+用于 shell 脚本的静态检查工具，写 shell 总算可以轻松一点了。
 
 ```sh
 % brew install shellcheck
@@ -295,7 +303,9 @@ http 抓包工具。
 % brew cask install jetbrains-toolbox
 ```
 
-然后使用 toolbox 来安装 Clion/GoLand 等开发工具，然后最重要的就是插件了：
+然后使用 toolbox 来安装 Clion/GoLand/DataGrip 等开发工具，这样升级、回退版本非常方便。
+
+IDE 外最重要的就是插件了：
 
 * [IdeaVim](https://github.com/JetBrains/ideavim)
 
@@ -317,13 +327,21 @@ vim 模拟器。
 
 🌈括号，必备。
 
+* [Highlight Bracket Pair](https://plugins.jetbrains.com/plugin/10465-highlightbracketpair)
+
+高亮最近的，对于 C/C++/Go 这些语言，在标示作用域方面很有用。
+
 * [Spacegrey Theme](https://plugins.jetbrains.com/plugin/12122-spacegray-theme/) 和 [Gruvbox Theme](https://plugins.jetbrains.com/plugin/12310-gruvbox-theme/)
 
 必备的两个配色。
 
 * [Material Theme UI](https://plugins.jetbrains.com/plugin/8006-material-theme-ui/)
 
-好看的 UI。
+好看的 UI，坏处是可能会让 IDE 变慢，鱼和熊掌不可兼得。
+
+* [Git Tool Box](https://plugins.jetbrains.com/plugin/7499-gittoolbox)
+
+Git 相关的一系列工具的继承，实时在编辑器里面显示 blame 信息感觉是最有用的。
 
 ### 效率工具
 
@@ -342,6 +360,14 @@ macOS 上超好用的效率工具。可通过热键，关键字，文本扩展�
 ```
 
 窗口切换工具。
+
+* [QSpace](https://qspace.awehunt.com/)
+
+更好用的 Finder，可以在 App Store 中下载，可以看看[这篇介绍](https://sspai.com/post/56373)。
+
+* [Edison Mail](https://mail.edison.tech/mac)
+
+更好用的邮件客户端，速度快，操作人性化；可以在 App Store 中下载。
 
 * [Go2Shell](https://zipzapmac.com/Go2Shell)
 
@@ -363,12 +389,20 @@ macOS 上超好用的效率工具。可通过热键，关键字，文本扩展�
 
 微软家的 todo 工具。
 
-* [OminiGraffle](https://www.omnigroup.com/omnigraffle/)
+* [Typora](https://typora.io/)
 
-mac 上超好用的画图工具。
+很好用的 Markdown 写作工具。
 
 ```sh
-brew cask install omnigraffle
+% brew cask install typora
+```
+
+* [draw.io](https://app.diagrams.net/)
+
+超好用的画图工具。
+
+```sh
+% brew cask install drawio
 ```
 
 * [CleanMyMac X](https://cleanmymac.macpaw.com/)
@@ -379,12 +413,12 @@ mac 上的清理工具。
 % brew cask install cleanmymac
 ```
 
-* [Spectacle](https://www.spectacleapp.com/)
+* [Rectangle](https://rectangleapp.com/)
 
-轻松移动和调整窗口大小。
+轻松移动和调整窗口大小，是[Spectacle](https://www.spectacleapp.com/)的替代品。
 
 ```sh
-brew cask install spectacle
+% brew cask install rectangle
 ```
 
 * [PDF Expert](https://pdfexpert.com/)
@@ -392,7 +426,7 @@ brew cask install spectacle
 mac 上最好的 PDF 阅读工具。
 
 ```sh
-brew cask install pdf-expert
+% brew cask install pdf-expert
 ```
 
 * [Macs Fan Control](https://www.crystalidea.com/macs-fan-control)
@@ -403,6 +437,30 @@ brew cask install pdf-expert
 % brew cask install macs-fan-control
 ```
 
+* [Pocket](https://app.getpocket.com/)
+
+收藏管理工具，配合 Chrome 中的[相关插件](https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj)一起使用非常方便。
+
+* [Copy +](https://apps.apple.com/us/app/copy-manage-clipboard-history/id1472854234?mt=12)
+
+剪贴板管理工具，可以在 App Store 中下载。
+
+* [Keka](https://www.keka.io/)
+
+压缩、解压缩工具。
+
+```sh
+% brew cask install keka
+```
+
+* [Dropbox](https://www.dropbox.com/)
+
+微软出的同步工具，比 iCloud 的优势我感觉是更加直观，可以直接通过 menu bar 很方便地查看文件同步进度。
+
+```sh
+% brew cask install dropbox
+```
+
 ### 娱乐工具
 
 * [IINA](https://iina.io/)
@@ -411,6 +469,14 @@ brew cask install pdf-expert
 
 ```sh
 % brew cask install iina
+```
+
+* [Downie 4](https://software.charliemonroe.net/downie/)
+
+macOS 上很好用的视频下载工具，功能强大。
+
+```sh
+% brew cask install downie
 ```
 
 #### Chrome 插件

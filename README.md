@@ -1,3 +1,22 @@
+<!-- vim-markdown-toc GFM -->
+
+* [INTRODUCTION](#introduction)
+    * [cli-APP](#cli-app)
+        * [Homebrew](#homebrew)
+        * [oh-my-zsh](#oh-my-zsh)
+            * [zsh plugin](#zsh-plugin)
+        * [neovim](#neovim)
+        * [miscellaneous](#miscellaneous)
+    * [gui-APP](#gui-app)
+        * [开发工具](#开发工具)
+            * [JetBrains 开发工具系列](#jetbrains-开发工具系列)
+        * [效率工具](#效率工具)
+        * [娱乐工具](#娱乐工具)
+            * [Chrome 插件](#chrome-插件)
+    * [References](#references)
+
+<!-- vim-markdown-toc -->
+
 # INTRODUCTION
 
 最近换了电脑，又得重新配置一遍，照着旧电脑的配置找那些软件真的是很烦，而且很多好用的命令行工具我可能直接就给忘了，后面要用的时候又想不起来。而且其实换过几次电脑之后发现大部分配置都是相同的，而把时间花在重复的事情上是没有意义的，所以打算把一般配置和安装方法都记录下来，最好是能够写个脚本一键安装，以后再换设备就从这儿同步。

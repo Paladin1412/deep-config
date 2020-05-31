@@ -11,7 +11,7 @@ Plug 'w0rp/ale'                                             " linter
 Plug 'neoclide/coc.nvim', {'branch': 'release'}             " coc 补全框架
 
 " 补全插件
-" Plug 'MaskRay/ccls'                                         " C 系列补全
+Plug 'MaskRay/ccls'                                         " C 系列补全
 Plug 'Shougo/echodoc.vim'                                   " 函数文档补全
 Plug 'tenfyzhong/CompleteParameter.vim'                     " 函数参数补全
 
@@ -32,7 +32,6 @@ Plug 'kristijanhusak/defx-git'                              " 文件中 git 状�
 " git 相关
 Plug 'tpope/vim-fugitive'                                   " 集成各种 git 命令
 Plug 'mhinz/vim-signify'                                    " 侧边栏显示修改状态(不仅仅支持 git)
-"Plug 'airblade/vim-gitgutter'                               " 侧边栏显示修改状态(仅支持 git)
 
 " 美化
 Plug 'mhinz/vim-startify'                                   " 启动页面
@@ -58,9 +57,6 @@ Plug 'liuchengxu/vim-which-key'                             " 和 spacemacs 类�
 Plug 'skywind3000/vim-preview'                              " 预览窗口
 " Plug 'skywind3000/asyncrun.vim'                             " 异步运行
 Plug 'preservim/nerdcommenter'
-
-" Plug 'tpope/vim-commentary'                                 " 快速注释
-
 
 " Go 语言插件
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -556,10 +552,11 @@ let g:which_key_map =  {}
 " 1. 基于已经存在的快捷键映射，直接使用一个字符串说明介绍信息即可
 " =======================================================
 
+
+" Open
 nnoremap <silent> <leader>oq :copen<CR>
 nnoremap <silent> <leader>ol :lopen<CR>
 nnoremap <silent> <leader>ov :Vista coc<CR>
-nnoremap <silent> <leader>om :MarkdownPreview<CR>
 nnoremap <silent> <leader>ot :rightbelow vertical terminal<CR>
 
 let g:which_key_map['o'] = {
@@ -569,13 +566,26 @@ let g:which_key_map['o'] = {
     \ 'q' : 'quickfix'          ,
     \ 'l' : 'locationlist'      ,
     \ 't' : 'terminal'          ,
-    \ 'm' : 'markdown-preview'  ,
+    \ }
+
+" Markdown
+nnoremap <silent> <leader>mp :MarkdownPreview<CR>
+nnoremap <silent> <leader>mc :MarkdownPreviewStop<CR>
+nnoremap <silent> <leader>mt :GenTocGFM<CR>
+
+let g:which_key_map['m'] = {
+    \ 'name' : '+markdown'      ,
+    \ 'p'  : 'preview'          ,
+    \ 'c'  : 'close'            ,
+    \ 't'  : 'TOC'              ,
     \ }
 
 " =======================================================
 " 2. 不存在相关的快捷键映射，需要用一个 list：
 "    第一个元素表明执行的操作，第二个是该操作的介绍
 " =======================================================
+
+" Buffer
 let g:which_key_map['b'] = {
     \ 'name' : '+buffer' ,
     \ '1' : ['b1'        , 'buffer 1']        ,
@@ -589,6 +599,7 @@ let g:which_key_map['b'] = {
     \ '?' : ['Buffers'   , 'fzf-buffer']      ,
     \ }
 
+" Window
 let g:which_key_map['w'] = {
     \ 'name' : '+windows' ,
     \ 'w' : ['<C-W>w'     , 'other-window']          ,

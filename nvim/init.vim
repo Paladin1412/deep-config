@@ -11,14 +11,12 @@ Plug 'w0rp/ale'                                             " linter
 Plug 'neoclide/coc.nvim', {'branch': 'release'}             " coc 补全框架
 
 " 补全插件
-Plug 'MaskRay/ccls'                                         " C 系列补全
+" Plug 'MaskRay/ccls'                                         " C 系列补全
 Plug 'Shougo/echodoc.vim'                                   " 函数文档补全
 Plug 'tenfyzhong/CompleteParameter.vim'                     " 函数参数补全
 
 " tag 相关插件
 Plug 'liuchengxu/vista.vim'                                 " 侧边栏显示 tag 结构
-
-Plug 'vhdirk/vim-cmake'
 
 " 快速搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }           " 文件、tag、buffer 搜索(非常快)
@@ -58,8 +56,10 @@ Plug 'jiangmiao/auto-pairs'                                 " 括号自动匹配
 Plug 'junegunn/vim-easy-align'                              " TODO: 这是啥插件来着？
 Plug 'liuchengxu/vim-which-key'                             " 和 spacemacs 类似的
 Plug 'skywind3000/vim-preview'                              " 预览窗口
-Plug 'skywind3000/asyncrun.vim'                             " 异步运行
-Plug 'tpope/vim-commentary'                                 " 快速注释
+" Plug 'skywind3000/asyncrun.vim'                             " 异步运行
+Plug 'preservim/nerdcommenter'
+
+" Plug 'tpope/vim-commentary'                                 " 快速注释
 
 
 " Go 语言插件
@@ -74,11 +74,11 @@ Plug 'chr4/nginx.vim'
 Plug 'solarnz/thrift.vim'
 
 " 新插件试用
-Plug 'editorconfig/editorconfig-vim'                                    " 这是啥插件来着？
+" Plug 'editorconfig/editorconfig-vim'                                    " 这是啥插件来着？
 
-Plug 'jceb/vim-orgmode'
+" Plug 'jceb/vim-orgmode'
 
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -1026,6 +1026,34 @@ set updatetime=100
 let g:signify_sign_change = "~"
 
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 nerdcommenter                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_c = 1
+
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 misc                                   "
